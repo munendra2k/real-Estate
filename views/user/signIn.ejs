@@ -1,0 +1,58 @@
+<% layout('./layouts/boilerplate') -%>
+<form
+  class="row g-3 offset-lg-4 col-lg-4 border border-secondary rounded p-5 mt-auto needs-validation"
+  action="/login"
+  method="post"
+  novalidate>
+  <div class="d-flex justify-content-center mb-3">
+    <a class="navbar-brand" href="/">
+      <i
+        class="fa-solid fa-book fs-3"
+        style="color: #4e1309"
+        width="30"
+        height="24"></i>
+    </a>
+  </div>
+  <h2 class="text-center">SignIn</h2>
+  <div class="form-floating mb-3">
+    <input
+      type="tel"
+      class="form-control"
+      id="mobileNo"
+      name="username"
+      placeholder="Mobile no"
+      required />
+    <label for="mobileNo" class="form-label" name="mobileNo">Mobile No</label>
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="form-floating">
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="password"
+      required />
+    <label for="password" class="form-label">Password</label>
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="col-12 mb-3">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="checkPassword"
+        onclick="showPassword()" />
+      <label class="form-check-label fs-6" for="checkPassword">
+        show password
+      </label>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">login</button>
+  </div>
+  <a href="/resetPassword">forgot password?</a>
+  <p>don't have an account?<a href="/signup">signup</a></p>
+</form>
+<!-- <script src="./js/passwordToggle.js"></script> -->

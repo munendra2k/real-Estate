@@ -1,0 +1,100 @@
+<% layout('./layouts/boilerplate') -%>
+<div
+  class="row offset-lg-3 mb-3 border rounded border-secondary bg-body-tertiary">
+  <div class="col-lg-6 mb-3">
+    <div class="card mt-3 mb-3" style="max-height: 25rem">
+      <img
+        src="<%= room.image %>"
+        class="card-img-top border border-1"
+        alt="<%= room.image %>"
+        style="height: 22rem" />
+    </div>
+    <div class="card-body p-3 mb-3 rounded" style="background-color: #fff">
+      <h3>Details</h3>
+      <br />
+      <p class="card-text m-1">
+        <span>Owner:</span><strong class="p-2"><%=room.owner.name%></strong>
+      </p>
+      <br />
+      <p><%=room.description%></p>
+    </div>
+  </div>
+  <div class="col-lg-6 mb-3">
+    <div class="card-body mt-3">
+      <div class="p-3 mb-3 rounded" style="background-color: #fff">
+        <h5 class="card-title mb-3 d-flex justify-content-between">
+          <%=room.title%>
+          <span
+            >&#8377;<strong class="p-1"
+              ><%= room.price.toLocaleString("en-IN") %></strong
+            ></span
+          >
+        </h5>
+        <p class="card-text"><%=room.description%></p>
+        <p class="card-text">
+          <span
+            ><%= room.city %>&sbquo;<%= room.state %>&sbquo;<%= room.zipCode
+            %></span
+          >
+        </p>
+
+        <p class="card-text float-end">
+          <span>Posted At</span>
+          <span class="fw-bold">
+            <%= room.createdAt.toDateString().slice(4)%>
+          </span>
+        </p>
+      </div>
+      <div class="p-3 mb-3 rounded" style="background-color: #fff">
+        <a href="/profile/<%= room.owner._id %>"
+          ><h2><%= room.owner.name %></h2></a
+        >
+        <!-- username is user Mobile no -->
+        <a href="tel:+91<%=room.owner.username %>"
+          ><i class="fa-solid fa-phone fs-4" style="color: #74c0fc"></i
+        ></a>
+        <a
+          aria-label="Chat on WhatsApp"
+          class="btn"
+          href="https://wa.me/+91<%= room.owner.username  %>">
+          <i class="fa-brands fa-whatsapp fs-2" style="color: #075e54"></i>
+        </a>
+      </div>
+      <div class="p-3 mb-3 rounded" style="background-color: #fff">
+        <h3>Posted In</h3>
+        <p class="card-text">
+          <span
+            ><%= room.city %>&sbquo;<%= room.state %>&sbquo;<%= room.zipCode
+            %></span
+          >
+        </p>
+        <br />
+        <p class="card-text float-end fw-bold">
+          <span><%= room.createdAt.toDateString().slice(4)%></span>
+        </p>
+      </div>
+      <div class="p-3 mb-3 rounded" style="background-color: #fff">
+        <h3>On Map</h3>
+        <p class="d-flex justify-content-between">
+          <span
+            ><%= room.city %>,<%= room.state %>&sbquo;<%= room.zipCode %></span
+          >
+          <span><%= room.createdAt.toDateString().slice(4)%></span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <%# if (currentUser && currentUser._id.equals(room.owner._id) ){ %>
+  <!-- <div class="col-12 d-flex justify-content-around">
+    <a href="/<%#= room._id %>" class="btn btn-link link-info"
+      ><button class="btn btn-info">Edit</button>
+    </a>
+    <form action="/<%#= room._id %>?_method=DELETE" method="post">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div> -->
+  <%# } %>
+</div>
+
+<%- include('recommend.ejs',{recRoomsByCategory, recRoomsByOwner,
+recRoomsByCity, recRoomsByState, recRoomsByZipcode,}) %>

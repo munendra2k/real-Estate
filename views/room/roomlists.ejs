@@ -1,0 +1,69 @@
+<% layout('./layouts/boilerplate') -%>
+<!-- if user have not book -->
+<% if (!rooms.length) { %>
+<h1 class="text-center fs-1">You have not any book</h1>
+<% } %>
+<!-- books -->
+<% for( let i = rooms.length-1; i>=0 ; i-- ) { %>
+<div
+  class="offset-lg-3 col-lg-9 mb-3 p-3 border rounded border-secondary bg-body-tertiary">
+  <div class="position-relative">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-share position-absolute top-0 end-0"
+      viewBox="0 0 16 16">
+      <path
+        d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3" />
+    </svg>
+  </div>
+  <div class="row">
+    <div class="col-3" style="width: 22rem">
+      <a href="/showmore/<%= rooms[i]._id %>">
+        <div class="card">
+          <img
+            src="<%= rooms[i].image %>"
+            class="card-img-top"
+            alt="<%= rooms[i].image %>"
+            style="height: 15rem" />
+        </div>
+      </a>
+    </div>
+    <div class="col-4">
+      <div class="card-body">
+        <p class="card-text">
+          <span>Title:</span>&nbsp;<strong><%= rooms[i].title %></strong>
+        </p>
+        <p class="card-text">
+          <span>Category</span>&nbsp;<strong><%= rooms[i].category %></strong>
+        </p>
+        <p class="card-text">
+          <span>Price</span>&nbsp;<strong
+            ><%= rooms[i].price.toLocaleString("en-In") %></strong
+          >
+        </p>
+        <p class="card-text"><%#= rooms[i].owner.user_name %></p>
+      </div>
+    </div>
+    <div class="col-1">
+      <a href="/<%= rooms[i]._id %>" class="btn btn-link link-info"> Edit </a>
+    </div>
+    <div class="col-1">
+      <form action="/<%= rooms[i]._id %>?_method=DELETE" method="post">
+        <button type="submit" class="btn btn-link link-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="position-relative card-body">
+    <p class="card-text position-absolute bottom-0 end-0">
+      <span>Posted At</span>&nbsp;<strong
+        ><%= rooms[i].createdAt.toDateString().slice(4) %></strong
+      >
+    </p>
+  </div>
+</div>
+<% } %>
+<script src="./js/roomlist.js"></script>

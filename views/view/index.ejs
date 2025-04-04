@@ -1,0 +1,46 @@
+<% layout('./layouts/boilerplate') -%>
+<!-- include filter -->
+<%- include('filter.ejs') %>
+<div
+  class="row offset-lg-3 col-lg-9 p-2 gap-2 mb-3 d-flex justify-content-sm-center bg-body-tertiary border rounded border-secondary">
+  <% for( let i=rooms.length-1;i>=0;i-- ) { %>
+  <div class="card mb-3 gap-1 p-1" style="width: 22rem">
+    <a href="/showmore/<%=rooms[i]._id%>">
+      <img
+        src="<%= rooms[i].image %>"
+        class="card-img-top rounded-1"
+        alt="<%= rooms[i].image %>"
+        style="height: 15rem" />
+    </a>
+    <div class="card-body">
+      <h5 class="card-title d-flex justify-content-between">
+        <%=rooms[i].title %>
+        <!-- room price price symbol(&#8377;)-->
+        <span
+          >&#8377;<strong
+            ><%= rooms[i].price.toLocaleString("en-IN") %></strong
+          ></span
+        >
+      </h5>
+      <p class="card-text">
+        <span>Category</span
+        ><strong class="p-2"><%= rooms[i].category %></strong>
+      </p>
+      <p class="card-text">
+        <span>Owner:</span><strong class="p-2"><%=rooms[i].owner.name%></strong>
+      </p>
+      <br />
+      <p class="col-5 text-truncate"><%=rooms[i].description%></p>
+      <a href="/showmore/<%=rooms[i]._id%>">More ...</a><br />
+      <p class="d-flex justify-content-between">
+        <span
+          ><%= rooms[i].city %>&sbquo;<%= rooms[i].state %>&sbquo;<%=
+          rooms[i].zipCode %></span
+        >
+        <span><%= rooms[i].createdAt.toDateString().slice(4)%></span>
+      </p>
+    </div>
+  </div>
+  <% } %>
+</div>
+<script src="./js/indexpage.js"></script>

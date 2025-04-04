@@ -1,0 +1,76 @@
+<% layout('./layouts/boilerplate') -%>
+<!-- if user have not book -->
+<% if (!roomsOwner.length) { %>
+<h1 class="text-center fs-1">this User have not any Room upload</h1>
+<% } %>
+
+<!-- roomsOwner -->
+<div class="row">
+  <div class="col-12 mb-3 p-2" style="height: 6.5rem">
+    <img
+      src="<%= roomsOwner[0].image %>"
+      class="rounded-circle"
+      alt="<%= roomsOwner[0].image %>"
+      style="width: 6.5rem; height: 6.5rem" />
+  </div>
+  <div class="offset-2 col-6">
+    <h3><%= roomsOwner[0].owner.name %></h3>
+    <p>posts <strong><%=roomsOwner.length %></strong></p>
+
+    <p>contact Us</p>
+
+    <!-- username is user Mobile no -->
+    <a href="tel:+91<%=roomsOwner[0].owner.username %>"
+      ><i class="fa-solid fa-phone fs-4" style="color: #74c0fc"></i
+    ></a>
+    <a
+      aria-label="Chat on WhatsApp"
+      class="btn"
+      href="https://wa.me/+91<%= roomsOwner[0].owner.username  %>">
+      <i class="fa-brands fa-whatsapp fs-2" style="color: #075e54"></i>
+    </a>
+  </div>
+</div>
+<div
+  class="row p-2 gap-2 mb-3 d-flex justify-content-sm-center bg-body-tertiary border rounded border-secondary">
+  <% for( let i=roomsOwner.length-1;i>=0;i-- ) { %>
+  <div class="card mb-3 gap-1 p-1" style="width: 22rem">
+    <a href="/showmore/<%=roomsOwner[i]._id%>">
+      <img
+        src="<%= roomsOwner[i].image %>"
+        class="card-img-top rounded-1"
+        alt="<%= roomsOwner[i].image %>"
+        style="height: 15rem" />
+    </a>
+    <div class="card-body">
+      <h5 class="card-title d-flex justify-content-between">
+        <%=roomsOwner[i].title%>
+        <!-- room price price symbol(&#8377;)-->
+        <span
+          >&#8377;<strong
+            ><%= roomsOwner[i].price.toLocaleString("en-IN") %></strong
+          ></span
+        >
+      </h5>
+      <p class="card-text">
+        <span>Category</span
+        ><strong class="p-2"><%= roomsOwner[i].category %></strong>
+      </p>
+      <p class="card-text">
+        <span>Owner:</span
+        ><strong class="p-2"><%=roomsOwner[i].owner.name%></strong>
+      </p>
+      <br />
+      <p class="col-5 text-truncate"><%=roomsOwner[i].description%></p>
+      <a href="/showmore/<%=roomsOwner[i]._id%>">More ...</a><br />
+      <p class="d-flex justify-content-between">
+        <span
+          ><%= roomsOwner[i].city %>&sbquo;<%= roomsOwner[i].state %>&sbquo;<%=
+          roomsOwner[i].zipCode %></span
+        >
+        <span><%= roomsOwner[i].createdAt.toDateString().slice(4)%></span>
+      </p>
+    </div>
+  </div>
+  <% } %>
+</div>

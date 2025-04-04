@@ -1,0 +1,15 @@
+<hr class="border border-secondary" />
+<div
+  class="row offset-lg-3 col-lg-9 p-2 gap-2 mb-3 d-flex justify-content-sm-center bg-body-tertiary border rounded border-secondary">
+  <h2>Recommend for you ...</h2>
+  <!-- recRoomsByCategory -->
+  <%- include('../recommend/recommendByCategory.ejs',{recRoomsByCategory}) %>
+  <!-- recRoomsByCity -->
+  <%- include('../recommend/recommendByCity.ejs',{recRoomsByCity}) %>
+  <!-- recRoomsByState -->
+  <%- include('../recommend/recommendByState.ejs',{recRoomsByState}) %>
+  <!-- recRoomsByZipCode -->
+  <%- include('../recommend/recommendByZipcode.ejs',{recRoomsByZipcode}) %>
+  <!-- recRoomsByOwner -->
+  <%- include('../recommend/recommendByOwner.ejs',{recRoomsByOwner}) %>
+</div>

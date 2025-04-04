@@ -1,0 +1,108 @@
+<% layout('./layouts/boilerplate') -%>
+<form
+  action="/uploadroom"
+  method="post"
+  class="row g-3 needs-validation offset-lg-3 col-lg-6 border border-secondary rounded p-5 mt-auto bg-success-subtle"
+  novalidate>
+  <h2 class="text-center">For Renting</h2>
+  <p class="text-center">please fill following credenntials</p>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="roomTitle"
+      name="room[title]"
+      placeholder="Title"
+      required />
+    <label for="roomTitle" class="form-label required">Title</label>
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="area"
+      name="room[area]"
+      placeholder="Area"
+      required />
+    <label for="area" class="form-label required">Area</label>
+    <div class="col-auto">
+      <span id="passwordHelpInline" class="form-text">
+        Must be specified dimesion in units(e.i, sq meter, sq feet, gaj).
+      </span>
+    </div>
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="form-floating">
+    <select
+      class="form-select"
+      id="category"
+      aria-label="Floating label select example"
+      name="room[category]"
+      required>
+      <option value="non-commercial">non-commercial</option>
+      <option value="commercial">commercial</option>
+    </select>
+    <label for="category">Category</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="number"
+      class="form-control"
+      id="price"
+      placeholder="100"
+      name="room[price]"
+      required />
+    <label for="price" class="form-label required">Price</label>
+    <div class="invalid-feedback">Please provide a valid price.</div>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="city"
+      placeholder="City"
+      name="room[city]"
+      required />
+    <label for="city" class="form-label required">City</label>
+    <div class="invalid-feedback">Please provide a valid city.</div>
+  </div>
+  <div class="form-floating">
+    <input
+      type="text"
+      class="form-control"
+      id="state"
+      placeholder="State"
+      name="room[state]"
+      required />
+    <label for="state" class="required">State</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="zipCode"
+      name="room[zipCode]"
+      placeholder="ZIP"
+      required />
+    <label for="zipCode" class="form-label required">Zip</label>
+    <div class="invalid-feedback">Please provide a valid zip.</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="image">Image</label>
+    <input type="text" class="form-control" id="image" name="room[image]" />
+  </div>
+  <div class="form-floating">
+    <textarea
+      class="form-control"
+      placeholder="Leave a comment here"
+      id="description"
+      name="room[description]"
+      style="height: 100px"></textarea>
+    <label for="description">Description</label>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>

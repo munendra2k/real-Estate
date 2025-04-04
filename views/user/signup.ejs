@@ -1,0 +1,87 @@
+<% layout('./layouts/boilerplate') -%>
+<form
+  class="row g-3 offset-lg-4 col-lg-4 border border-secondary rounded p-5 mt-auto needs-validation"
+  action="/signup"
+  method="post"
+  novalidate>
+  <div class="d-flex justify-content-center mb-3">
+    <a class="navbar-brand" href="/">
+      <i
+        class="fa-solid fa-book fs-3"
+        style="color: #4e1309"
+        width="30"
+        height="24"></i>
+    </a>
+  </div>
+  <h2 class="text-center">SignUp</h2>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      placeholder="Name"
+      name="name"
+      required />
+    <label for="username" class="form-label">Name</label>
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="tel"
+      class="form-control"
+      id="mobileNo"
+      placeholder="Mobile no"
+      name="username"
+      required />
+    <label for="mobileNo" class="form-label">Mobile No</label>
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="form-floating">
+    <!-- <div class="container-fluid d-flex"> -->
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="password"
+      required />
+    <label for="password" class="form-label">Password</label>
+    <div class="col-auto">
+      <span id="passwordHelpInline" class="form-text">
+        Must be 5-20 characters long.
+      </span>
+    </div>
+    <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div class="col-12 mb-3">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="checkPassword"
+        onclick="showPassword()" />
+      <label class="form-check-label fs-6" for="checkPassword">
+        show password
+      </label>
+      <div class="invalid-feedback">You must agree before submitting.</div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="termConditions"
+        required />
+      <label class="form-check-label" for="termConditions">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">You must agree before submitting.</div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Register</button>
+    <p>already have an account?<a href="/login">signin</a></p>
+  </div>
+</form>

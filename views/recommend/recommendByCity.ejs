@@ -1,0 +1,41 @@
+<!-- recRoomsByCity -->
+<% for( let i=recRoomsByCity.length-1;i>=0;i-- ) { %>
+<div class="card mb-3 gap-1 p-1" style="width: 22rem">
+  <a href="/showmore/<%=recRoomsByCity[i]._id%>">
+    <img
+      src="<%= recRoomsByCity[i].image %>"
+      class="card-img-top rounded-1"
+      alt="<%= recRoomsByCity[i].image %>"
+      style="height: 15rem" />
+  </a>
+  <div class="card-body">
+    <h5 class="card-title d-flex justify-content-between">
+      <%=recRoomsByCity[i].title%>
+      <!-- room price price symbol(&#8377;)-->
+      <span
+        >&#8377;<strong
+          ><%= recRoomsByCity[i].price.toLocaleString("en-IN") %></strong
+        ></span
+      >
+    </h5>
+    <p class="card-text">
+      <span>Category</span
+      ><strong class="p-2"><%= recRoomsByCity[i].category %></strong>
+    </p>
+    <p class="card-text">
+      <span>Owner:</span
+      ><strong class="p-2"><%=recRoomsByCity[i].owner.name%></strong>
+    </p>
+    <br />
+    <p class="col-5 text-truncate"><%=recRoomsByCity[i].description%></p>
+    <a href="/showmore/<%=recRoomsByCity[i]._id%>">More ...</a><br />
+    <p class="d-flex justify-content-between">
+      <span
+        ><%= recRoomsByCity[i].city %>&sbquo;<%= recRoomsByCity[i].state
+        %>&sbquo;<%= recRoomsByCity[i].zipCode %></span
+      >
+      <span><%= recRoomsByCity[i].createdAt.toDateString().slice(4)%></span>
+    </p>
+  </div>
+</div>
+<% } %>
