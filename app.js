@@ -75,7 +75,7 @@ app.use("/", roomRoute);
 app.use("/", errorRoute);
 
 //server live
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`app listening on port ${PORT}`);
 });
